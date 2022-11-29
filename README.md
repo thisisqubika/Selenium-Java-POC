@@ -2,7 +2,7 @@
 Selenium and Java framework for Automation testing
 ## Getting started with Selenium
 Selenium is an open-source tool that automates web browsers, mobile apps and APIs
-https://www.cypress.io/.
+https://www.selenium.dev/.
 
 ### The project directory structure
 src/test/java
