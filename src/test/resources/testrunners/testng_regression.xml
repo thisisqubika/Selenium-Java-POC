@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression PW Suite">
+
+    <listeners>
+        <listener class-name="extentReport.FareyeListener" />
+
+    </listeners>
+    <test name="PractisTest Test_firefox">
+        <parameter name="headless" value="false"/>
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="Test.PractisTest" />
+
+        </classes>
+
+    </test>
+    <test name="PractisTest Test_chrome">
+        <parameter name="headless" value="false"/>
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="Test.PractisTest" />
+
+        </classes>
+
+    </test>
+    <test name="PractisTest Test_safari">
+        <parameter name="headless" value="false"/>
+        <parameter name="browser" value="safari" />
+        <classes>
+            <class name="Test.PractisTest" />
+
+        </classes>
+
+    </test>
+
+</suite>
+
+
