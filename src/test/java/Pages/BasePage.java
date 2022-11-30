@@ -1,14 +1,19 @@
 package Pages;
 
 import Utilities.Utilities;
+import com.aventstack.extentreports.Status;
+import extentReport.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 public class BasePage {
@@ -44,6 +49,22 @@ public class BasePage {
         return aWebElement.isEnabled();
 
     }
+    public boolean isWebElementDisplayed(WebElement aWebElement) {
+            return aWebElement.isDisplayed();
+		
+    }
+    public boolean isWebElementDisplayed(List<WebElement> aListOfWebElements, int pos) {
+        return aListOfWebElements.get(pos).isDisplayed();
+		
+    }   
+    public boolean isWebElementSelected(WebElement aWebElement) {
+        return aWebElement.isSelected();
+		
+    }
+    public boolean isWebElementSelected(List<WebElement> aListOfWebElements, int pos) {
+        return aListOfWebElements.get(pos).isSelected();
+		
+    }
     public String getCssValueFromWebElement(WebElement aWebElement, String propertyName){
         return aWebElement.getCssValue(propertyName);
     }
@@ -51,7 +72,7 @@ public class BasePage {
         aWebElement.sendKeys(key);
 
     }
-        Select aSelection;
+    Select aSelection;
     public Select getSelect(WebElement aWebElement) {
     	aSelection = new Select(aWebElement);
     	return aSelection;
@@ -73,6 +94,71 @@ public class BasePage {
         
     	return aWebElement;
     	
+    }
+    public void reportAndFail(String aLocalizedMessage) {
+        ExtentTestManager.reporterLog(aLocalizedMessage, Status.FAIL);
+        Assert.fail(aLocalizedMessage);
+
+    }
+    public void makeAnAssert(String actual, String expected, String message) {
+        try{
+            Assert.assertEquals(actual, expected, message);
+
+        }catch(AssertionError aErr) {
+            this.reportAndFail(aErr.getLocalizedMessage());
+
+        }
+
+    }
+    public void makeAnAssert(boolean actual, boolean expected, String message) {
+        try{
+            Assert.assertEquals(actual, expected, message);
+
+        }catch(AssertionError aErr) {
+            this.reportAndFail(aErr.getLocalizedMessage());
+
+        }
+
+    }
+    public void makeAnAssert(int actual, int expected, String message) {
+        try{
+            Assert.assertEquals(actual, expected, message);
+
+        }catch(AssertionError aErr) {
+            this.reportAndFail(aErr.getLocalizedMessage());
+
+        }
+
+    }
+    public void makeAnAssert(boolean condition, String message) {
+        try{
+            Assert.assertTrue(condition, message);
+
+        }catch(AssertionError aErr) {
+            this.reportAndFail(aErr.getLocalizedMessage());
+
+        }
+
+    }
+    public void makeAnAssertNot(String actual, String expected, String message) {
+        try{
+            Assert.assertNotEquals(actual, expected, message);
+
+        }catch(AssertionError aErr) {
+            this.reportAndFail(aErr.getLocalizedMessage());
+
+        }
+
+    }
+    public void makeAnAssertFalse(boolean condition, String message) {
+        try{
+            Assert.assertFalse(condition, message);
+
+        }catch(AssertionError aErr) {
+            this.reportAndFail(aErr.getLocalizedMessage());
+
+        }
+
     }
 
 }
