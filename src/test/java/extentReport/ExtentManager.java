@@ -22,14 +22,13 @@ public class ExtentManager{
    public static String MONTH = getMonthInSpanish();
    public static String YEAR = String.valueOf(YEAR_NUMBER);
    public static String DAY = String.valueOf(DAY_NUMBER);
-   public static String CURRENT_TIME = getCurrentTime();
-   public static String FECHA_COMPLETA = YEAR + BACKSLASH + MONTH + BACKSLASH + DAY + BACKSLASH + getCurrentTime() + BACKSLASH;
+   public static String COMPLETE_DATE = YEAR + BACKSLASH + MONTH + BACKSLASH + DAY + BACKSLASH + getCurrentTime() + BACKSLASH;
    public static String AUTOMATION_REPORT_FOLDER = "/Automation_Reports/";
    private static String reportBaseDirectory;
    private static String reportName;
    private static ExtentReports extent;
    public static final String OUTPUT_FOLDER_SCREENSHOTS ="/Screenshots/";
-   public static final String REPORT_FILE_PATH = System.getProperty("user.dir") + AUTOMATION_REPORT_FOLDER + FECHA_COMPLETA;
+   public static final String REPORT_FILE_PATH = System.getProperty("user.dir") + AUTOMATION_REPORT_FOLDER + COMPLETE_DATE;
    public static final String TIMESTAMP_FORMAT = "EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'";
    public static final String DOCUMENT_TITLE = "Moove-IT - Automation Reports";
    public static final String REPORT_NAME = " Automation Reports";
@@ -47,7 +46,8 @@ public class ExtentManager{
        ExtentManager.initDirectories();
        setReportBaseDirectory(REPORT_FILE_PATH);
        
-       ExtentSparkReporter spark = new ExtentSparkReporter(REPORT_FILE_PATH + DOCUMENT_TITLE + " - " +  getReportName() + " - " + CURRENT_TIME + ".html");
+       ExtentSparkReporter spark = new ExtentSparkReporter(REPORT_FILE_PATH + DOCUMENT_TITLE + " " +
+                                                            getReportName() + " - " + getCurrentTime() + ".html");
        sparkConfig(spark, CP1252_ENCODING, ICON + REPORT_NAME, TIMESTAMP_FORMAT, DOCUMENT_TITLE);
        
        extent = new ExtentReports();

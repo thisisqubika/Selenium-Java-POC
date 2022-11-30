@@ -18,6 +18,11 @@ public class Utilities extends BasePage {
     public Utilities(){
 
     }
+    public static final String WINDOW_OPEN = "window.open()";
+	public static final String SCROLL_INTO_VIEW = "arguments[0].scrollIntoView();";
+	public static final String SCROLL_TO_DIR_START = "window.scrollBy(0,";
+	public static final String SCROLL_TO_DIR_END = ")";
+
     /*
      * This method is used tu initialize the properties from config_file
      * */
@@ -29,6 +34,45 @@ public class Utilities extends BasePage {
 
         return prop;
 
+    }
+    public JavascriptExecutor createJse() {
+    	JavascriptExecutor jse = (JavascriptExecutor)driver;
+    	return jse;
+    	
+    }
+    public void scrollToADirection(String aDirection) {
+    	JavascriptExecutor jse = createJse();
+    	jse.executeScript(SCROLL_TO_DIR_START + aDirection + SCROLL_TO_DIR_END);
+    	
+    }
+    public void scrollToADirectionPixel() {
+    	JavascriptExecutor jse = createJse();
+    	jse.executeScript("window.scrollBy(0,12500)");
+    	
+    }
+    public void scrollIntoView(WebElement anElement) {
+    	JavascriptExecutor jse = createJse();
+    	jse.executeScript(SCROLL_INTO_VIEW, anElement);
+    
+    }
+    public void getTabs(int aTab){
+    	ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    	driver.switchTo().window(tabs.get(aTab));
+    	
+    }
+    public Alert getSwitchToAlert() {
+    	return driver.switchTo().alert();
+    	
+    }
+    public void acceptOnOkPrompt() throws InterruptedException {
+    	getSwitchToAlert().accept();
+        Thread.sleep(1000);
+        
+    }
+    public String AlertGetText() {
+        String AlertText = getSwitchToAlert().getText();
+        return AlertText;
+        
     }
 
     public int pixelsToInt(String aPixelSize){
