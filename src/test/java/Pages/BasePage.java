@@ -51,5 +51,28 @@ public class BasePage {
         aWebElement.sendKeys(key);
 
     }
+        Select aSelection;
+    public Select getSelect(WebElement aWebElement) {
+    	aSelection = new Select(aWebElement);
+    	return aSelection;
+    	
+    }
+    public void selectByVisibleText(WebElement aWebElement, String aValue) {
+    	aSelection = getSelect(aWebElement);
+    	aSelection.selectByVisibleText(aValue);
+    	
+    }
+	public List<WebElement> valuesFromSelect(WebElement aWebElement){
+		aSelection = getSelect(aWebElement);
+    	return aSelection.getOptions();
+    	
+    }
+    public WebElement getValueFromLov(WebElement anElement) {
+    	aSelection = new Select(anElement);
+    	WebElement aWebElement = aSelection.getFirstSelectedOption();
+        
+    	return aWebElement;
+    	
+    }
 
 }
