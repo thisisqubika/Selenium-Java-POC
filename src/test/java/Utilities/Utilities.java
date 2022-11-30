@@ -30,13 +30,16 @@ public class Utilities extends BasePage {
     /*
      * This method is used tu initialize the properties from config_file
      * */
-    public Properties init_prop() throws IOException, FileNotFoundException {
+    public Properties init_prop() throws IOException {
         FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
 
         prop = new Properties();
         prop.load(ip);
-
         return prop;
+
+    }
+    public String getPropertyByValue(Properties properties, String aValue){
+        return properties.getProperty(aValue).trim();
 
     }
     public JavascriptExecutor createJse() {

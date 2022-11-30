@@ -13,7 +13,6 @@ import org.openqa.selenium.safari.SafariOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
-import java.awt.*;
 import java.io.IOException;
 import java.time.Duration;
 
@@ -35,9 +34,9 @@ public class BaseTest extends BasePage {
         timeoutManager(10);
 
         initElements(driver, this);
-        setContextAttribute(context, prop.getProperty("webdriver-att-val").trim(), driver);
+        setContextAttribute(context, utilities.getPropertyByValue(prop, "webdriver-att-val"), driver);
 
-        getToAnUrl(prop.getProperty("url").trim());
+        getToAnUrl(utilities.getPropertyByValue(prop, "url"));
     }
     @AfterMethod
     public void closeDriver(){
@@ -48,16 +47,19 @@ public class BaseTest extends BasePage {
 
     }
     public void addOptionsArgumentsForBrowser(ChromeOptions aChromeDriverOptions) {
-        aChromeDriverOptions.addArguments(prop.getProperty("start-max").trim(), prop.getProperty("disable-extensions").trim(),
-                                          prop.getProperty("disable-notifications").trim(), prop.getProperty("disable-infobars").trim());
+        aChromeDriverOptions.addArguments(utilities.getPropertyByValue(prop,"start-max"),
+                                          utilities.getPropertyByValue(prop,"disable-extensions"),
+                                          utilities.getPropertyByValue(prop,"disable-notifications"),
+                                          utilities.getPropertyByValue(prop,"disable-infobars"));
         aChromeDriverOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-
 
     }
     public void addOptionsArgumentsForHeadlessRun(ChromeOptions aChromeDriverOptions) {
-        aChromeDriverOptions.addArguments(prop.getProperty("headless").trim(), prop.getProperty("disable-gpu").trim(),
-                                          prop.getProperty("window-size").trim(), prop.getProperty("ignore-certificate-errors").trim(),
-                                          prop.getProperty("no-sandbox").trim(), prop.getProperty("disable-dev-shm-usage").trim());
+        aChromeDriverOptions.addArguments(utilities.getPropertyByValue(prop,"headless"), utilities.getPropertyByValue(prop,"disable-gpu"),
+                                          utilities.getPropertyByValue(prop,"window-size"),
+                                          utilities.getPropertyByValue(prop,"ignore-certificate-errors"),
+                                          utilities.getPropertyByValue(prop,"no-sandbox"),
+                                          utilities.getPropertyByValue(prop,"disable-dev-shm-usage"));
         aChromeDriverOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
     }
@@ -78,6 +80,7 @@ public class BaseTest extends BasePage {
         }
         if(!isHeadless){
             isHeadless = false;
+
         }
         if(browserName.equals("chrome")){
             chromeOptions = new ChromeOptions();
@@ -86,7 +89,6 @@ public class BaseTest extends BasePage {
 
             }
             addOptionsArgumentsForBrowser(chromeOptions);
-
             dvr = new ChromeDriver(chromeOptions);
 
         }
@@ -108,7 +110,6 @@ public class BaseTest extends BasePage {
 
         }
         return dvr;
-
 
     }
 

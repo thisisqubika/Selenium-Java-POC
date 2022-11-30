@@ -1,24 +1,31 @@
 package Pages;
 
 import Utilities.Utilities;
+
 import com.aventstack.extentreports.Status;
 import extentReport.ExtentTestManager;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.NoSuchElementException;
+
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 
 public class BasePage {
     public static WebDriver driver;
-
     protected ChromeOptions chromeOptions;
     protected FirefoxOptions firefoxOptions;
     protected SafariOptions safariOptions;
@@ -158,6 +165,69 @@ public class BasePage {
             this.reportAndFail(aErr.getLocalizedMessage());
 
         }
+
+    }
+    Wait<WebDriver> waitGeneral;
+    /**
+     * Increment a value by delta and return the new value.
+     *
+     * @param  timeToWait   the amount of time the wait object will wait.
+     * @param  pollingTime  the amount of time the wait object will try to locate the element.
+     * @return a FluentWait object
+     */
+    public Wait<WebDriver> generalFluentWait(long timeToWait, long pollingTime) {
+        waitGeneral = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeToWait))
+                .pollingEvery(Duration.ofSeconds(pollingTime))
+                .ignoring(NoSuchElementException.class);
+
+        return waitGeneral;
+
+    }
+    Wait<WebDriver> waitParticular;
+    public void waitForAListOfWebElementsToFullyLoad(List<WebElement> aListOfWebElements, long timeToWait, long pollingTime) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.visibilityOfAllElements(aListOfWebElements));
+
+    }
+    public void waitForAWebElementToFullyLoad(List<WebElement> aListOfWebElements, int pos, long timeToWait, long pollingTime) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.visibilityOf(aListOfWebElements.get(pos)));
+
+    }
+    public void waitForAWebElementToFullyLoad(WebElement anElement, long timeToWait, long pollingTime) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.visibilityOf(anElement));
+
+    }
+    public void waitForAWebElementToBeClickable(WebElement anElement, long timeToWait, long pollingTime) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.elementToBeClickable(anElement));
+
+    }
+    public void waitForAWebElementToBeInvisible(WebElement anElement, long timeToWait, long pollingTime) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.invisibilityOf(anElement));
+
+    }
+    public void waitForAWebElementToBeClickable(List<WebElement> aListOfWebElements, int pos, long timeToWait, long pollingTime) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.elementToBeClickable(aListOfWebElements.get(pos)));
+
+    }
+    public void waitForAWebElementHaveAnAttribute(WebElement anElement, long timeToWait, long pollingTime, String anAttribute, String aValue) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.attributeToBe(anElement, anAttribute, aValue));
+
+    }
+    public void waitForTextToAppear(WebElement anElement, long timeToWait, long pollingTime, String textToAppear) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.textToBePresentInElement(anElement, textToAppear));
+
+    }
+    public void waitForTextToAppear(List<WebElement> aListOfWebElements, int pos, long timeToWait, long pollingTime, String textToAppear) {
+        waitParticular = generalFluentWait(timeToWait, pollingTime);
+        waitParticular.until(ExpectedConditions.textToBePresentInElement(aListOfWebElements.get(pos), textToAppear));
 
     }
 

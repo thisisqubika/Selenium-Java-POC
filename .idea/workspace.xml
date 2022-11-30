@@ -7,6 +7,7 @@
     <list default="true" id="6961b1a1-7cc8-405e-9b24-5d4bfc8d5dc0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utilities/Utilities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
