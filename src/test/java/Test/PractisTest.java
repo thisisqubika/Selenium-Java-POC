@@ -7,7 +7,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(FareyeListener.class)
-public class PractisTest extends BaseTest{
+public class PractisTest extends BaseTest {
     @Test(description = "By clicking in Do1 button Do2 will be enabled and Do1 disabled and vice versa")
     public void doButtonsTest(){
         loginPage = startTest();
