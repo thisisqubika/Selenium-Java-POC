@@ -23,9 +23,9 @@ public class ExtentTestManager extends BaseTest {
    static Map<Integer, ExtentTest> extentTestMap = new HashMap<Integer, ExtentTest>();
    public static ExtentReports extent = ExtentManager.getInstance();
    private static final ThreadLocal<String> categoryName = new ThreadLocal<String>();
-   
-   public static String HTML_BREAK = "<br/>"; 
-   
+
+   public static String HTML_BREAK = "<br/>";
+
    public static synchronized ExtentTest getTest() {
        return extentTestMap.get((int) Thread.currentThread().threadId());
        

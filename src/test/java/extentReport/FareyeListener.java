@@ -24,36 +24,36 @@ import java.util.Date;
 import static extentReport.ExtentManager.*;
 
 public class FareyeListener implements ITestListener {
-	
+
 	public static String THREE_DASH = " --- ";
 	public static String FULL_FORMAT_DATE = "MMM_dd_yyyy_HH_mm_ss_SSS";
 	public static String UNDERSCORE = "_";
-	
+
 	public static String START_STRING = "===== ";
 	public static String FINISH_STRING = " =====";
-	
+
 	public static String TEST_SUITE = "Test suite ";
 	public static String STARTED = "started ";
 	public static String FINISHED = "finished ";
 	public static String EXECUTING = "Executing : ";
-	
+
 	public static String SUCCESS = "Finish sucessfully: ";
 	public static String ERRORS = "Finish with errors: ";
-	
+
 	public static String OK = "Test finished successfully";
 	public static String SKIPPED = "This test was skipped: ";
 	public static String FAILED = " Test Failed: ";
-	
+
 	public static String FONT_HTML_SUCCESS = "<br><font color= green>";
 	public static String FONT_HTML_FAIL = "<br><font color= red>";
 	public static String IMAGE_HTML = "Image: ";
 	public static String FONT_CLOSE = "</font></b>";
-	
+
 	public static String SCREENSHOT_FAIL = "Failed to take screenshot ";
-	
+
     private static long endTime;
-    private static void setStartTime(long startTime) {						
-    	
+    private static void setStartTime(long startTime) {
+
     }
     private static void setEndTime(long endTime) {
         FareyeListener.endTime = endTime;
@@ -65,23 +65,23 @@ public class FareyeListener implements ITestListener {
     }
     public synchronized void onStart(ITestContext context) {
     	String outPutDirectory = context.getOutputDirectory();
-    	System.out.println(TEST_SUITE + STARTED + outPutDirectory + THREE_DASH + context.getName());
+    	System.out.println(TEST_SUITE + STARTED + outPutDirectory + THREE_DASH + context.getSuite().getName());
 
-        setReportName(outPutDirectory.substring(58) + UNDERSCORE + context.getName());
+        setReportName(outPutDirectory.substring(58) + UNDERSCORE + context.getSuite().getName());
 
     }
     public synchronized void onFinish(ITestContext context) {
         setStartTime(context.getStartDate().getTime());
         setEndTime(context.getEndDate().getTime());
         
-        System.out.println(TEST_SUITE + FINISHED + context.getOutputDirectory() + THREE_DASH + context.getName());
+        System.out.println(TEST_SUITE + FINISHED + context.getOutputDirectory() + THREE_DASH + context.getSuite().getName());
         
         
     }
     public synchronized void onTestStart(ITestResult result) {
         System.out.println(START_STRING + EXECUTING + getSimpleMethodName(result) + FINISH_STRING);
         
-        ExtentTestManager.createTest(result.getName(),result.getMethod().getDescription());
+        ExtentTestManager.createTest(result.getName(), result.getMethod().getDescription());
         ExtentTestManager.setCategoryName(getSimpleClassName(result));
         
     }

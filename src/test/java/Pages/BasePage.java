@@ -8,6 +8,7 @@ import extentReport.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.PageFactory;
@@ -29,6 +30,7 @@ public class BasePage {
     protected ChromeOptions chromeOptions;
     protected FirefoxOptions firefoxOptions;
     protected SafariOptions safariOptions;
+    protected EdgeOptions edgeOptions;
     public LoginPage loginPage;
     public MainPage mainPage;
     protected static Utilities utilities;

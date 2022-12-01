@@ -36,6 +36,7 @@ BaseTest in setDriver method is prepared to run with this browsers from TestNG x
 - Chrome
 - Firefox
 - Safari
+- Edge
 
 ### 2.1 How to run with xml file, Basic structure
 ``` 

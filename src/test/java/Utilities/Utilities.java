@@ -1,6 +1,7 @@
 package Utilities;
 
 import Pages.BasePage;
+import extentReport.ExtentTestManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -43,8 +44,7 @@ public class Utilities extends BasePage {
 
     }
     public JavascriptExecutor createJse() {
-    	JavascriptExecutor jse = (JavascriptExecutor)driver;
-    	return jse;
+        return (JavascriptExecutor)driver;
     	
     }
     public void scrollToADirection(String aDirection) {
@@ -87,6 +87,14 @@ public class Utilities extends BasePage {
 
         String newIntToBeParsed = aPixelSize.substring(0, aPixelSize.length() - 2);
         return Integer.parseInt(newIntToBeParsed);
+
+    }
+    public void getReportLog(String aString) {
+        ExtentTestManager.reporterLog(aString);
+
+    }
+    public void getReportJsonLog(String aString, String aNodeTitle) {
+        ExtentTestManager.reporterJsonLog(aString, aNodeTitle);
 
     }
 

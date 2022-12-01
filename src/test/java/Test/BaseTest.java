@@ -2,14 +2,19 @@ package Test;
 
 import Pages.BasePage;
 import Utilities.Utilities;
+
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chromium.ChromiumOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
@@ -37,6 +42,7 @@ public class BaseTest extends BasePage {
         setContextAttribute(context, utilities.getPropertyByValue(prop, "webdriver-att-val"), driver);
 
         getToAnUrl(utilities.getPropertyByValue(prop, "url"));
+
     }
     @AfterMethod
     public void closeDriver(){
@@ -46,21 +52,21 @@ public class BaseTest extends BasePage {
         }
 
     }
-    public void addOptionsArgumentsForBrowser(ChromeOptions aChromeDriverOptions) {
-        aChromeDriverOptions.addArguments(utilities.getPropertyByValue(prop,"start-max"),
-                                          utilities.getPropertyByValue(prop,"disable-extensions"),
-                                          utilities.getPropertyByValue(prop,"disable-notifications"),
-                                          utilities.getPropertyByValue(prop,"disable-infobars"));
-        aChromeDriverOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+    public void addOptionsArgumentsForBrowser(ChromiumOptions<?> aChromiumDriverOptions) {
+        aChromiumDriverOptions.addArguments(utilities.getPropertyByValue(prop,"start-max"),
+                                            utilities.getPropertyByValue(prop,"disable-extensions"),
+                                            utilities.getPropertyByValue(prop,"disable-notifications"),
+                                            utilities.getPropertyByValue(prop,"disable-infobars"));
+        aChromiumDriverOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
     }
-    public void addOptionsArgumentsForHeadlessRun(ChromeOptions aChromeDriverOptions) {
-        aChromeDriverOptions.addArguments(utilities.getPropertyByValue(prop,"headless"), utilities.getPropertyByValue(prop,"disable-gpu"),
-                                          utilities.getPropertyByValue(prop,"window-size"),
-                                          utilities.getPropertyByValue(prop,"ignore-certificate-errors"),
-                                          utilities.getPropertyByValue(prop,"no-sandbox"),
-                                          utilities.getPropertyByValue(prop,"disable-dev-shm-usage"));
-        aChromeDriverOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+    public void addOptionsArgumentsForHeadlessRun(ChromiumOptions<?> aChromiumDriverOptions) {
+        aChromiumDriverOptions.addArguments(utilities.getPropertyByValue(prop,"headless"),
+                                            utilities.getPropertyByValue(prop,"disable-gpu"),
+                                            utilities.getPropertyByValue(prop,"window-size"),
+                                            utilities.getPropertyByValue(prop,"ignore-certificate-errors"),
+                                            utilities.getPropertyByValue(prop,"no-sandbox"),
+                                            utilities.getPropertyByValue(prop,"disable-dev-shm-usage"));
 
     }
     public void setContextAttribute(ITestContext aContext, String aWebDriverAttribute, WebDriver remoteDriver) {
@@ -99,6 +105,16 @@ public class BaseTest extends BasePage {
 
             }
             dvr = new FirefoxDriver(firefoxOptions);
+
+        }
+        if(browserName.equals("msedge")){
+            edgeOptions = new EdgeOptions();
+            if(isHeadless){
+                //edgeOptions.setHeadless(true);
+                addOptionsArgumentsForHeadlessRun(edgeOptions);
+            }
+            addOptionsArgumentsForBrowser(edgeOptions);
+            dvr = new EdgeDriver(edgeOptions);
 
         }
         if(browserName.equals("safari")){

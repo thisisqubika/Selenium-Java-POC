@@ -6,9 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="6961b1a1-7cc8-405e-9b24-5d4bfc8d5dc0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test/PractisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test/PractisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utilities/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utilities/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/extentReport/ExtentTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/extentReport/ExtentTestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/extentReport/FareyeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/extentReport/FareyeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testrunners/testng_regression.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testrunners/testng_regression.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,16 +59,9 @@
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.PractisTest.doButtonsTest">
+  <component name="RunManager" selected="TestNG.PractisTest.backgroundColorChangingTest">
     <configuration name="SafariDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SafariDemo" />
-      <module name="Selenium-POC" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test" />
       <module name="Selenium-POC" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,6 +74,24 @@
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PractisTest.backgroundColorChangingTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Selenium-POC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.PractisTest" />
+      <option name="METHOD_NAME" value="backgroundColorChangingTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.PractisTest.backgroundColorChangingTest" />
+        <item itemvalue="TestNG./Users/gerardochavez/IdeaProjects/Selenium-POC/src/test/resources/testrunners/testng_regression.xml" />
         <item itemvalue="TestNG.PractisTest.doButtonsTest" />
         <item itemvalue="TestNG.PractisTest.fontChangingSizeTest" />
-        <item itemvalue="TestNG./Users/gerardochavez/IdeaProjects/Selenium-POC/src/test/resources/testrunners/testng_regression.xml" />
         <item itemvalue="Application.SafariDemo" />
-        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>

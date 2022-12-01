@@ -7,7 +7,16 @@
         <listener class-name="extentReport.FareyeListener" />
 
     </listeners>
-    <test name="PractisTest Test_firefox">
+    <test name="PractisTest Test Microsoft Edge">
+        <parameter name="headless" value="false"/>
+        <parameter name="browser" value="msedge" />
+        <classes>
+            <class name="Test.PractisTest" />
+
+        </classes>
+
+    </test>
+    <test name="PractisTest Test Mozilla Firefox">
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="firefox" />
         <classes>
@@ -16,7 +25,7 @@
         </classes>
 
     </test>
-    <test name="PractisTest Test_chrome">
+    <test name="PractisTest Test Google Chrome">
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="chrome" />
         <classes>
@@ -25,7 +34,8 @@
         </classes>
 
     </test>
-    <test name="PractisTest Test_safari">
+<!--
+    <test name="PractisTest Test Safari">
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="safari" />
         <classes>
@@ -34,7 +44,7 @@
         </classes>
 
     </test>
-
+-->
 </suite>
 
 
