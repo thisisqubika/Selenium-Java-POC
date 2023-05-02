@@ -1,6 +1,7 @@
 package Pages;
 
 import Utilities.Utilities;
+import Utilities.FakerClass;
 
 import com.aventstack.extentreports.Status;
 import extentReport.ExtentTestManager;
@@ -22,6 +23,7 @@ import org.testng.Assert;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -33,8 +35,12 @@ public class BasePage {
     protected EdgeOptions edgeOptions;
     public LoginPage loginPage;
     public MainPage mainPage;
+    public LandingPage landingPage;
+    public SignupPage signupPage;
+    public AccountCreatedPage accountCreatedPage;
     protected static Utilities utilities;
     public static Properties prop;
+    public static FakerClass fakerClass;
     public void initElements(WebDriver remoteDriver, Object aPage) {
         PageFactory.initElements(remoteDriver, aPage);
 
@@ -42,6 +48,7 @@ public class BasePage {
     public static void setProps() throws IOException {
         utilities = new Utilities();
         prop = utilities.init_prop();
+        fakerClass = new FakerClass();
 
     }
 
@@ -49,9 +56,22 @@ public class BasePage {
         driver.get(anUrl);
 
     }
-    public LoginPage startTest() {
-        loginPage = new LoginPage(driver);
-        return loginPage;
+    public LandingPage startTest() {
+        landingPage = new LandingPage(driver);
+        return landingPage;
+
+    }
+    public String getTextFromAWebElement(WebElement aWebElement){
+        return aWebElement.getText();
+
+    }
+    public List<String> getTextFromListOfWebElements(List<WebElement> aListOfWebElements){
+        List<String> aListOfStrings = new ArrayList<String>();
+        for(WebElement el : aListOfWebElements){
+            aListOfStrings.add(this.getTextFromAWebElement(el));
+
+        }
+        return aListOfStrings;
 
     }
     public boolean isWebElementEnabled(WebElement aWebElement){
@@ -76,6 +96,11 @@ public class BasePage {
     }
     public String getCssValueFromWebElement(WebElement aWebElement, String propertyName){
         return aWebElement.getCssValue(propertyName);
+
+    }
+    public String getAttributeFromWebElement(WebElement aWebElement, String attribute){
+        return aWebElement.getAttribute(attribute);
+
     }
     public void sendKeysToAWebElement(WebElement aWebElement, String key){
         aWebElement.sendKeys(key);

@@ -1,8 +1,8 @@
 package Utilities;
 
+import java.util.List;
+
 public class Constants {
-    public static final String USER_DIR = "user.dir";
-    public static final String RED = "red";
-    public static final String BLUE = "blue";
+    public static final List<String> SIGN_UP_TITLES_LIST = List.of("ENTER ACCOUNT INFORMATION", "ADDRESS INFORMATION");
 
 }

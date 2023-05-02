@@ -53,7 +53,7 @@ BaseTest in setDriver method is prepared to run with this browsers from TestNG x
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="firefox" />
         <classes>
-            <class name="Test.PractisTest" />
+            <class name="Test.AutomationExerciseTest" />
 
         </classes>
 

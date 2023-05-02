@@ -20,6 +20,7 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Collections;
 
 
 public class BaseTest extends BasePage {
@@ -47,7 +48,7 @@ public class BaseTest extends BasePage {
     @AfterMethod
     public void closeDriver(){
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
 
         }
 
@@ -55,8 +56,9 @@ public class BaseTest extends BasePage {
     public void addOptionsArgumentsForBrowser(ChromiumOptions<?> aChromiumDriverOptions) {
         aChromiumDriverOptions.addArguments(utilities.getPropertyByValue(prop,"start-max"),
                                             utilities.getPropertyByValue(prop,"disable-extensions"),
-                                            utilities.getPropertyByValue(prop,"disable-notifications"),
-                                            utilities.getPropertyByValue(prop,"disable-infobars"));
+                                            utilities.getPropertyByValue(prop,"disable-notifications"));
+
+        aChromiumDriverOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         aChromiumDriverOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
     }

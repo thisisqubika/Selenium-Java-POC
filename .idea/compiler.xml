@@ -9,8 +9,5 @@
         <module name="Selenium-POC" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Selenium-POC" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>

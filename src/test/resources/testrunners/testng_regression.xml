@@ -11,7 +11,7 @@
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="msedge" />
         <classes>
-            <class name="Test.PractisTest" />
+            <class name="Test.AutomationExerciseTest" />
 
         </classes>
 
@@ -20,7 +20,7 @@
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="firefox" />
         <classes>
-            <class name="Test.PractisTest" />
+            <class name="Test.AutomationExerciseTest" />
 
         </classes>
 
@@ -29,7 +29,7 @@
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="Test.PractisTest" />
+            <class name="Test.AutomationExerciseTest" />
 
         </classes>
 
@@ -39,7 +39,7 @@
         <parameter name="headless" value="false"/>
         <parameter name="browser" value="safari" />
         <classes>
-            <class name="Test.PractisTest" />
+            <class name="Test.AutomationExerciseTest" />
 
         </classes>
 
