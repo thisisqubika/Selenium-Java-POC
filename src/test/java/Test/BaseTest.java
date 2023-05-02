@@ -48,7 +48,7 @@ public class BaseTest extends BasePage {
     @AfterMethod
     public void closeDriver(){
         if (driver != null) {
-            //driver.quit();
+            driver.quit();
 
         }
 
