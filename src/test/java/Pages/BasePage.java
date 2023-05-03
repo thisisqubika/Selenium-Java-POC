@@ -6,18 +6,17 @@ import Utilities.FakerClass;
 import com.aventstack.extentreports.Status;
 import extentReport.ExtentTestManager;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariOptions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.NoSuchElementException;
 
 import org.testng.Assert;
 
@@ -34,7 +33,7 @@ public class BasePage {
     protected SafariOptions safariOptions;
     protected EdgeOptions edgeOptions;
     public LoginPage loginPage;
-    public MainPage mainPage;
+    public DeletedAccountPage deletedAccountPage;
     public LandingPage landingPage;
     public SignupPage signupPage;
     public AccountCreatedPage accountCreatedPage;
@@ -51,9 +50,22 @@ public class BasePage {
         fakerClass = new FakerClass();
 
     }
-
     public void getToAnUrl(String anUrl) {
         driver.get(anUrl);
+
+    }
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+
+    }
+    public void switchToIframe(WebDriver remoteDriver, String nameOrId){
+        remoteDriver.switchTo()
+                    .frame(nameOrId);
+
+    }
+    public void switchToIframe(WebDriver remoteDriver, WebElement AWebElement){
+        remoteDriver.switchTo()
+                    .frame(AWebElement);
 
     }
     public LandingPage startTest() {
@@ -124,8 +136,8 @@ public class BasePage {
     }
     public WebElement getValueFromLov(WebElement anElement) {
     	aSelection = new Select(anElement);
-    	WebElement aWebElement = aSelection.getFirstSelectedOption();
-        
+
+        WebElement aWebElement = aSelection.getFirstSelectedOption();
     	return aWebElement;
     	
     }
@@ -257,5 +269,60 @@ public class BasePage {
         waitParticular.until(ExpectedConditions.textToBePresentInElement(aListOfWebElements.get(pos), textToAppear));
 
     }
+
+    @FindBy(id="dismiss-button")
+    WebElement dismissBtn;
+    public WebElement getDismissBtn(){
+        return dismissBtn;
+
+    }
+    @FindBy(id="ad_iframe")
+    WebElement adIframe;
+    public WebElement getAdIframe(){
+        return adIframe;
+
+    }
+    @FindBy(id="aswift_1")
+    WebElement aswiftIframe;
+    public WebElement getAswiftIframe(){
+        return aswiftIframe;
+
+    }
+    @FindBy(xpath="//div[@id='dismiss-button']//span[normalize-space()='Close']")
+    List<WebElement> checkButtonCloseList;
+    public List<WebElement> getCheckButtonClose(){
+        return checkButtonCloseList;
+
+    }
+    /**
+     * In case that an AD on continue button is displayed when create an account
+     * the close button will be clicked in order to continue the flow
+     *
+     */
+    public void clickOnDismissBtn() throws InterruptedException {
+        try{
+            this.switchToIframe(driver, this.getAswiftIframe());
+            this.switchToIframe(driver, this.getAdIframe());
+
+            Thread.sleep(1000);
+            List < WebElement > checkButtonClose = this.getCheckButtonClose();
+            if (checkButtonClose.size() > 0) {
+                this.getCheckButtonClose()
+                        .get(0)
+                        .click();
+
+            } else {
+                this.getDismissBtn()
+                        .click();
+
+            }
+            driver.switchTo().defaultContent();
+
+        }catch(Exception ignored){
+
+        }
+
+    }
+
 
 }

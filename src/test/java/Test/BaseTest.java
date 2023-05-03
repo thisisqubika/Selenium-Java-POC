@@ -33,14 +33,13 @@ public class BaseTest extends BasePage {
     @BeforeMethod
     public void setUpBrowser(ITestContext context, @Optional String browserName, @Optional String headless) {
         driver = this.setDriver(browserName, Boolean.parseBoolean(headless));
-        driver.manage().window().maximize();
+        this.maximizeWindow(driver);
 
         utilities = new Utilities(driver);
 
-        timeoutManager(10);
-
+        this.timeoutManager(10, driver);
         initElements(driver, this);
-        setContextAttribute(context, utilities.getPropertyByValue(prop, "webdriver-att-val"), driver);
+        this.setContextAttribute(context, utilities.getPropertyByValue(prop, "webdriver-att-val"), driver);
 
         getToAnUrl(utilities.getPropertyByValue(prop, "url"));
 
@@ -75,9 +74,17 @@ public class BaseTest extends BasePage {
         aContext.setAttribute(aWebDriverAttribute, remoteDriver);
 
     }
-    public void timeoutManager(int seconds) {
+    public void timeoutManager(int seconds, WebDriver remoteDriver) {
         Duration dur = Duration.ofSeconds(seconds);
-        driver.manage().timeouts().implicitlyWait(dur);
+        remoteDriver.manage()
+              .timeouts()
+              .implicitlyWait(dur);
+
+    }
+    public void maximizeWindow(WebDriver remoteDriver){
+        remoteDriver.manage()
+                    .window()
+                    .maximize();
 
     }
     public WebDriver setDriver(String browserName, boolean isHeadless){

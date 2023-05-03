@@ -16,6 +16,12 @@ public class LoginPage extends BasePage {
         return signUpForm;
 
     }
+    @FindBy(className="login-form")
+    WebElement loginForm;
+    public WebElement getLoginForm(){
+        return loginForm;
+
+    }
     @FindBy(name="name")
     WebElement nameSignupInput;
     public WebElement getNameSignupInput(){
@@ -37,19 +43,28 @@ public class LoginPage extends BasePage {
         return signupPage;
 
     }
-    @FindBy(name="password")
-    WebElement passwordInput;
-    public WebElement getpasswordInput(){
-        return passwordInput;
+    @FindBy(xpath="//input[@data-qa='login-email']")
+    WebElement loginEmailInput;
+    public WebElement getLoginEmailInput(){
+        return loginEmailInput;
 
     }
-    @FindBy(name="login")
+    @FindBy(name="password")
+    WebElement loginPasswordInput;
+    public WebElement getLoginPasswordInput(){
+        return loginPasswordInput;
+
+    }
+    @FindBy(xpath="//button[@data-qa='login-button']")
     WebElement loginBtn;
-    public MainPage clickOnLoginBtn(){
+    public void clickOnLoginBtn(){
         loginBtn.click();
 
-        mainPage = new MainPage(driver);
-        return mainPage;
+    }
+    @FindBy(xpath="//p[@style='color: red;']")
+    WebElement errorMsg;
+    public WebElement getErrorMsg(){
+        return errorMsg;
 
     }
 

@@ -19,5 +19,36 @@ public class LandingPage extends BasePage{
         return loginPage;
 
     }
+    @FindBy(xpath="//a[@href='/logout']")
+    WebElement logoutBtn;
+    public WebElement getLogoutBtn(){
+        return logoutBtn;
+
+    }
+    public void clickOnLogoutBtn(){
+        this.getLogoutBtn()
+            .click();
+
+    }
+    @FindBy(xpath="//a[@href='/delete_account']")
+    WebElement deleteAccountBtn;
+    public WebElement getDeleteAccountBtn(){
+        return deleteAccountBtn;
+
+    }
+    public DeletedAccountPage clickOnDeletedAccountBtn(){
+        this.getDeleteAccountBtn()
+            .click();
+
+        deletedAccountPage = new DeletedAccountPage(driver);
+        return deletedAccountPage;
+
+    }
+    @FindBy(xpath="//ul[@class='nav navbar-nav']//li//a//b")
+    WebElement loggedAsUsername;
+    public WebElement getLoggedAsUsername(){
+        return loggedAsUsername;
+
+    }
 
 }
