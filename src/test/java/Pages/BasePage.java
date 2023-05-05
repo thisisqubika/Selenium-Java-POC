@@ -37,9 +37,14 @@ public class BasePage {
     public LandingPage landingPage;
     public SignupPage signupPage;
     public AccountCreatedPage accountCreatedPage;
+    public ContactUsPage contactUsPage;
+    public ProductsPage productsPage;
+    public ProductDetailPage productDetailPage;
+
     protected static Utilities utilities;
     public static Properties prop;
     public static FakerClass fakerClass;
+
     public void initElements(WebDriver remoteDriver, Object aPage) {
         PageFactory.initElements(remoteDriver, aPage);
 
@@ -66,6 +71,10 @@ public class BasePage {
     public void switchToIframe(WebDriver remoteDriver, WebElement AWebElement){
         remoteDriver.switchTo()
                     .frame(AWebElement);
+
+    }
+    public void switchToDefaultContent(WebDriver remoteDriver){
+        remoteDriver.switchTo().defaultContent();
 
     }
     public LandingPage startTest() {
@@ -95,7 +104,8 @@ public class BasePage {
 		
     }
     public boolean isWebElementDisplayed(List<WebElement> aListOfWebElements, int pos) {
-        return aListOfWebElements.get(pos).isDisplayed();
+        return aListOfWebElements.get(pos)
+                                 .isDisplayed();
 		
     }   
     public boolean isWebElementSelected(WebElement aWebElement) {
@@ -103,7 +113,8 @@ public class BasePage {
 		
     }
     public boolean isWebElementSelected(List<WebElement> aListOfWebElements, int pos) {
-        return aListOfWebElements.get(pos).isSelected();
+        return aListOfWebElements.get(pos)
+                                 .isSelected();
 		
     }
     public String getCssValueFromWebElement(WebElement aWebElement, String propertyName){
@@ -136,9 +147,7 @@ public class BasePage {
     }
     public WebElement getValueFromLov(WebElement anElement) {
     	aSelection = new Select(anElement);
-
-        WebElement aWebElement = aSelection.getFirstSelectedOption();
-    	return aWebElement;
+        return aSelection.getFirstSelectedOption();
     	
     }
     public void reportAndFail(String aLocalizedMessage) {
@@ -282,10 +291,16 @@ public class BasePage {
         return adIframe;
 
     }
+    @FindBy(id="aswift_5")
+    WebElement aswiftFiveIframe;
+    public WebElement getAswiftFiveIframe(){
+        return aswiftFiveIframe;
+
+    }
     @FindBy(id="aswift_1")
-    WebElement aswiftIframe;
-    public WebElement getAswiftIframe(){
-        return aswiftIframe;
+    WebElement aswiftOneIframe;
+    public WebElement getAswiftOneIframe(){
+        return aswiftOneIframe;
 
     }
     @FindBy(xpath="//div[@id='dismiss-button']//span[normalize-space()='Close']")
@@ -297,15 +312,30 @@ public class BasePage {
     /**
      * In case that an AD on continue button is displayed when create an account
      * the close button will be clicked in order to continue the flow
+     * adapted from https://anhtester.com/blog/handle-ads-google-using-selenium-b557.html
+     *
+     * @param  iframe is the number of iframe that came from google ads. Sometimes cames with id="aswift_1"
+     *                and in other cases id="aswift_5", the idea is to manage these situations as it appears
      *
      */
-    public void clickOnDismissBtn() throws InterruptedException {
+    public void clickOnDismissBtn(int iframe) throws InterruptedException {
+        WebElement iframeChosen = null;
+        if(iframe == 1){
+            iframeChosen = this.getAswiftOneIframe();
+
+        }
+        if(iframe == 5){
+            iframeChosen = this.getAswiftFiveIframe();
+
+        }
         try{
-            this.switchToIframe(driver, this.getAswiftIframe());
+            this.switchToIframe(driver, iframeChosen);
             this.switchToIframe(driver, this.getAdIframe());
 
             Thread.sleep(1000);
-            List < WebElement > checkButtonClose = this.getCheckButtonClose();
+            List<WebElement> checkButtonClose = this.getCheckButtonClose();
+            System.out.println(checkButtonClose.size() + " <<<");
+            waitForAListOfWebElementsToFullyLoad(checkButtonClose, 30, 3);
             if (checkButtonClose.size() > 0) {
                 this.getCheckButtonClose()
                         .get(0)
@@ -316,13 +346,18 @@ public class BasePage {
                         .click();
 
             }
-            driver.switchTo().defaultContent();
+            this.switchToDefaultContent(driver);
 
         }catch(Exception ignored){
 
         }
 
     }
+    @FindBy(xpath="//h2[@class='title text-center']")
+    List<WebElement> pagesTitlesList;
+    public List<WebElement> getPagesTitlesList(){
+        return pagesTitlesList;
 
+    }
 
 }

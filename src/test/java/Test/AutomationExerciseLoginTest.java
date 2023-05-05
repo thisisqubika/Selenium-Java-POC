@@ -12,7 +12,7 @@ import java.util.List;
 import static Utilities.Constants.*;
 
 @Listeners(FareyeListener.class)
-public class AutomationExerciseTest extends BaseTest {
+public class AutomationExerciseLoginTest extends BaseTest {
     @Test(description = "Test Case 1: Register User")
     public void registerUserTest() throws InterruptedException {
         landingPage = startTest();

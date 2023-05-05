@@ -50,5 +50,27 @@ public class LandingPage extends BasePage{
         return loggedAsUsername;
 
     }
+    @FindBy(xpath="//a[@href='/contact_us']")
+    WebElement contactUsBtn;
+
+    public ContactUsPage clickOnContactUsBtn(){
+        contactUsBtn.click();
+
+        contactUsPage = new ContactUsPage(driver);
+        return contactUsPage;
+
+    }
+    @FindBy(xpath="//a[@href='/products']")
+    WebElement productsBtn;
+
+    public ProductsPage clickOnProductsBtn() throws InterruptedException {
+        productsBtn.click();
+        clickOnDismissBtn(5);
+
+        System.out.println("ASD");
+        productsPage = new ProductsPage(driver);
+        return productsPage;
+
+    }
 
 }

@@ -4,19 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6961b1a1-7cc8-405e-9b24-5d4bfc8d5dc0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/DeletedAccountPage.java" afterDir="false" />
+    <list default="true" id="6961b1a1-7cc8-405e-9b24-5d4bfc8d5dc0" name="Changes" comment="Methods to support test cases&#10;constants needed to assert in test cases&#10;test cases created 1,2,3,4,5">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/ContactUsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/ProductDetailPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/ProductsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AutomationExerciseContactUsFormTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AutomationExerciseProductsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/AccountCreatedPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountCreatedPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/AccountsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test/AutomationExerciseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test/AutomationExerciseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test/AutomationExerciseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test/AutomationExerciseLoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utilities/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/config/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utilities/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testrunners/testng_regression.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testrunners/testng_regression.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +69,7 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Pages" />
+      <recent name="Test" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -73,7 +77,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.AutomationExerciseTest.logoutTest">
+  <component name="RunManager" selected="TestNG.AutomationExerciseContactUsFormTest.contactUsFormTest">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -85,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AutomationExerciseTest.logoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AutomationExerciseContactUsFormTest.contactUsFormTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Selenium-POC" />
       <extension name="coverage">
         <pattern>
@@ -94,7 +98,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseTest" />
+      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseContactUsFormTest" />
+      <option name="METHOD_NAME" value="contactUsFormTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AutomationExerciseLoginTest.logoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Selenium-POC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseLoginTest" />
       <option name="METHOD_NAME" value="logoutTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -103,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AutomationExerciseTest.registerUserTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AutomationExerciseLoginTest.registerWithAnExistentEmailTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Selenium-POC" />
       <extension name="coverage">
         <pattern>
@@ -112,25 +134,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseTest" />
-      <option name="METHOD_NAME" value="registerUserTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AutomationExerciseTest.registerWithAnExistentEmailTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Selenium-POC" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseTest" />
+      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseLoginTest" />
       <option name="METHOD_NAME" value="registerWithAnExistentEmailTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -139,7 +143,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AutomationExerciseTest.successfulLoginText" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AutomationExerciseLoginTest.successfulLoginText" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Selenium-POC" />
       <extension name="coverage">
         <pattern>
@@ -148,7 +152,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseTest" />
+      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseLoginTest" />
       <option name="METHOD_NAME" value="successfulLoginText" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -157,7 +161,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AutomationExerciseTest.unsuccessfulLoginText" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AutomationExerciseProductsTest.contactUsFormTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Selenium-POC" />
       <extension name="coverage">
         <pattern>
@@ -166,8 +170,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseTest" />
-      <option name="METHOD_NAME" value="unsuccessfulLoginText" />
+      <option name="MAIN_CLASS_NAME" value="Test.AutomationExerciseProductsTest" />
+      <option name="METHOD_NAME" value="contactUsFormTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -177,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.AutomationExerciseTest.logoutTest" />
-        <item itemvalue="TestNG.AutomationExerciseTest.successfulLoginText" />
-        <item itemvalue="TestNG.AutomationExerciseTest.registerWithAnExistentEmailTest" />
-        <item itemvalue="TestNG.AutomationExerciseTest.unsuccessfulLoginText" />
-        <item itemvalue="TestNG.AutomationExerciseTest.registerUserTest" />
+        <item itemvalue="TestNG.AutomationExerciseContactUsFormTest.contactUsFormTest" />
+        <item itemvalue="TestNG.AutomationExerciseProductsTest.contactUsFormTest" />
+        <item itemvalue="TestNG.AutomationExerciseLoginTest.logoutTest" />
+        <item itemvalue="TestNG.AutomationExerciseLoginTest.successfulLoginText" />
+        <item itemvalue="TestNG.AutomationExerciseLoginTest.registerWithAnExistentEmailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -194,6 +198,21 @@
       <option name="presentableId" value="Default" />
       <updated>1669653808683</updated>
     </task>
+    <task id="LOCAL-00001" summary="Methods to support test cases&#10;constants needed to assert in test cases&#10;test cases created 1,2,3,4,5">
+      <created>1683147998189</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683147998189</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Methods to support test cases&#10;constants needed to assert in test cases&#10;test cases created 1,2,3,4,5">
+      <created>1683148047273</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683148047273</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +233,18 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Methods to support test cases&#10;constants needed to assert in test cases&#10;test cases created 1,2,3,4,5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Methods to support test cases&#10;constants needed to assert in test cases&#10;test cases created 1,2,3,4,5" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Pages/BasePage.java</url>
+          <line>330</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

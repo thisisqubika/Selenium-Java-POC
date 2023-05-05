@@ -47,7 +47,7 @@ public class BaseTest extends BasePage {
     @AfterMethod
     public void closeDriver(){
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
 
         }
 
@@ -75,10 +75,9 @@ public class BaseTest extends BasePage {
 
     }
     public void timeoutManager(int seconds, WebDriver remoteDriver) {
-        Duration dur = Duration.ofSeconds(seconds);
         remoteDriver.manage()
-              .timeouts()
-              .implicitlyWait(dur);
+                    .timeouts()
+                    .implicitlyWait(Duration.ofSeconds(seconds));
 
     }
     public void maximizeWindow(WebDriver remoteDriver){
@@ -131,7 +130,7 @@ public class BaseTest extends BasePage {
             safariOptions.setImplicitWaitTimeout(Duration.ofSeconds(20));
 
             dvr = new SafariDriver(safariOptions);
-            dvr.switchTo().defaultContent();
+            switchToDefaultContent(dvr);
 
         }
         return dvr;

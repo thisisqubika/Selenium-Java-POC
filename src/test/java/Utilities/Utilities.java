@@ -68,17 +68,17 @@ public class Utilities extends BasePage {
     	
     }
     public Alert getSwitchToAlert() {
-    	return driver.switchTo().alert();
+    	return driver.switchTo()
+                     .alert();
     	
     }
     public void acceptOnOkPrompt() throws InterruptedException {
-    	getSwitchToAlert().accept();
+    	this.getSwitchToAlert().accept();
         Thread.sleep(1000);
         
     }
     public String AlertGetText() {
-        String AlertText = getSwitchToAlert().getText();
-        return AlertText;
+        return this.getSwitchToAlert().getText();
         
     }
 

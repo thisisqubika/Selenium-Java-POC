@@ -21,7 +21,7 @@ public class AccountsPage extends SignupPage {
     WebElement continueBtn;
     public void clickOnContinueBtn() throws InterruptedException {
         continueBtn.click();
-        clickOnDismissBtn();
+        clickOnDismissBtn(1);
 
     }
 

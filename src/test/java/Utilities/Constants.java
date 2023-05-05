@@ -15,5 +15,15 @@ public class Constants {
     public static final String INVALID_CREDENTIALS = "Your email or password is incorrect!";
     public static final String ALREADY_USED_EMAIL = "Email Address already exist!";
     public static final String LOGIN_BASEPATH = "login";
+    public static final String PRODUCTS_BASEPATH = "product_details/";
+
+    public static final List<String> CONTACT_US_TITLE_LIST = List.of("CONTACT US", "GET IN TOUCH", "FEEDBACK FOR US");
+    public static final List<String> FEEDBACK_FOR_US_PARAGRAPHS = List.of(
+            "We really appreciate your response to our website.",
+            "Kindly share your feedback with us at feedback@automationexercise.com.",
+            "If you have any suggestion areas or improvements, do let us know. We will definitely work on it.",
+            "Thank you");
+    public static final String SUCCESS_SUBMITED_CONTACT_FORM_MESSAGE = "Success! Your details have been submitted successfully.";
+    public static final String ALL_PRODUCTS_TITLE = "ALL PRODUCTS";
 
 }
